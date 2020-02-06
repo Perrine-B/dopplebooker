@@ -3,6 +3,10 @@ import { AppLoading } from 'expo';
 import { Container, Text } from 'native-base';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
+import Title from './Components/Head';
+import Footer from './Components/Footer';
+import Infos from './Components/Infos';
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -12,7 +16,7 @@ export default class App extends React.Component {
     };
   }
 
-  async componentDidMount() {
+ async componentDidMount() {
     await Font.loadAsync({
       Roboto: require('native-base/Fonts/Roboto.ttf'),
       Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
@@ -20,7 +24,7 @@ export default class App extends React.Component {
     });
     this.setState({ isReady: true });
   }
-
+  
   render() {
     if (!this.state.isReady) {
       return <AppLoading />;
@@ -28,7 +32,9 @@ export default class App extends React.Component {
 
     return (
       <Container>
-        <Text>Expo initialisé!</Text>
+        <Title></Title>
+        <Infos></Infos>
+        <Footer></Footer>
       </Container>
     );
   }
